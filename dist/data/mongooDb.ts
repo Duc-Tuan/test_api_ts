@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
 
-const {
-  MONGO_HOST,
-  MONGO_USERNAME,
-  MONGO_PASSWORD,
-  MONGO_PORT,
-  MONGO_DBNAME,
-  MONGO_LOCAL,
-  MONGO_HOST_CONNECT,
-  MONGO_DBNAME_CONNECT,
-} = process.env;
+// let uri = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST_CONNECT}/${MONGO_DBNAME_CONNECT}?retryWrites=true&w=majority`;
+let uri = 'mongodb+srv://admin:admin12345@cluster0.fkjkxce.mongodb.net/customerdb?retryWrites=true&w=majority';
 
-let uri = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST_CONNECT}/${MONGO_DBNAME_CONNECT}?retryWrites=true&w=majority`;
-
-if (MONGO_LOCAL) {
-  uri = `mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DBNAME}`;
-}
+// if (MONGO_LOCAL) {
+//   // uri = `mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DBNAME}`;
+//   uri = `mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DBNAME}`;
+// }
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 mongoose
   .connect(uri)
